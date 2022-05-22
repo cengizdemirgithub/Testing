@@ -22,7 +22,7 @@ public class Frage2 {
 1.Index kullanarak Seçenek 1’i (Option 1) seçin
 2.Value kullanarak Seçenek 2'yi (Option 2) seçin
 3.Visible Text(Görünen metin) kullanarak Seçenek 1’i (Option 1) seçin
-4.Tüm dropdown optionslari yazdırın
+
 5. Dropdown’un boyutunu bulun, Dropdown’da 4 öğe varsa konsolda True , degilse
 False yazdırın
      */
@@ -46,7 +46,6 @@ False yazdırın
         select.selectByValue("2");
         select.selectByVisibleText("Option 2");
         List<WebElement> selectList=select.getOptions();
-        System.out.println(selectList);
         int dropDownCount=selectList.size();
        if( dropDownCount==4){
            System.out.println("true");
