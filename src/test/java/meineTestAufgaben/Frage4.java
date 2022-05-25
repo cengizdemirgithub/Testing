@@ -13,7 +13,8 @@ public class Frage4 extends TestBase {
     public void name() {
         //1. Launch browser
         //2. Navigate to url 'http://automationexercise.com'
-        driver.get("http://automationexercise.com");
+        //driver.get("http://automationexercise.com");
+        driver.navigate().to("http://automationexercise.com");
         //3. Click on 'Signup / Login' button
         WebElement clickSignup = driver.findElement(By.xpath("//a[@href='/login']"));
         clickSignup.click();
@@ -46,14 +47,13 @@ public class Frage4 extends TestBase {
         select.click();
         WebElement option = driver.findElement(By.xpath("//option[@value='1'][1]"));
         option.click();
+
         //10. Select checkbox 'Sign up for our newsletter!'
+        WebElement checkbox=driver.findElement(By.xpath("//*[text()='Sign up for our newsletter!']"));
+        checkbox.click();
         //11. Select checkbox 'Receive special offers from our partners!'
-        //12. Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
-        //13. Click 'Create Account button'
-        //14. Verify that 'ACCOUNT CREATED!' is visible
-        //15. Click 'Continue' button
-        //16. Verify that 'Logged in as username' is visible
-        //17. Click 'Delete Account' button
-        //18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
+        WebElement checkbox2=driver.findElement(By.xpath("//*[text()='Receive special offers from our partners!]"));
+        checkbox.click();
+
     }
 }
