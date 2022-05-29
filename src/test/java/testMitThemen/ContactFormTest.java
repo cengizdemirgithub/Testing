@@ -34,7 +34,7 @@ Assert.assertTrue(driver.findElement(By.xpath("(//*[@class='title text-center'])
         //7. Upload file
         WebElement uploadFile = driver.findElement(By.xpath("//input[@name='upload_file']"));
 
-
+      
        driver.findElement(By.xpath("//*[@*='btn btn-primary pull-left submit_form']")).click();
 
 
