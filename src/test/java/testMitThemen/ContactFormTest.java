@@ -11,7 +11,7 @@ import utilities.TestBase;
 public class ContactFormTest extends TestBase {
     //1. Launch browser
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
         //2. Navigate to url 'http://automationexercise.com'
         driver.navigate().to("http://automationexercise.com");
         //3. Verify that home page is visible successfully
@@ -20,7 +20,7 @@ public class ContactFormTest extends TestBase {
         driver.findElement(By.xpath("//*[@*='/contact_us']")).click();
 
         //5. Verify 'GET IN TOUCH' is visible
-Assert.assertTrue(driver.findElement(By.xpath("(//*[@class='title text-center'])[1]")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("(//*[@class='title text-center'])[1]")).isDisplayed());
         //6. Enter name, email, subject and message
         WebElement name = driver.findElement(By.xpath("(//*[@class='form-control'])[1]"));
         name.sendKeys("xya");
@@ -32,14 +32,19 @@ Assert.assertTrue(driver.findElement(By.xpath("(//*[@class='title text-center'])
         message.sendKeys("message");
 
         //7. Upload file
+        //Thread.sleep(3000);
         WebElement uploadFile = driver.findElement(By.xpath("//input[@name='upload_file']"));
+       JavascriptExecutor jse=(JavascriptExecutor) driver;
+       jse.executeScript("window.scrollBy(0,400)");
 
-      
-       driver.findElement(By.xpath("//*[@*='btn btn-primary pull-left submit_form']")).click();
-
+        uploadFile.sendKeys("C:\\Users\\konta\\IdeaProjects\\MyGithubQA\\src\\trytest.txt");
+        //"C:\Users\konta\OneDrive\Desktop\note.txt"
+        driver.findElement(By.xpath("//*[@*='btn btn-primary pull-left submit_form']")).click();
 
 
         //8. Click 'Submit' button
-        //9. Click OK button
+        WebElement submitButton=driver.findElement(By.xpath("//*[@*='btn btn-primary pull-left submit_form']"));
+       submitButton.click();
+
     }
 }
