@@ -15,12 +15,12 @@ public class AddProducktsTest extends TestBase {
         //Click 'Products' button
         driver.findElement(By.xpath("//a[@*='/products']")).click();
         //Hover over first product and click 'Add to cart'
-        driver.findElement(By.xpath("(//*[@*='btn btn-default add-to-cart'])[1]")).click();
+        driver.findElement(By.xpath("(//a[@class='btn btn-default add-to-cart'])[2]")).click();
         //Click 'Continue Shopping' button
         driver.findElement(By.xpath("//*[text()='Continue Shopping']")).click();
         //Hover over second product and click 'Add to cart'
         Thread.sleep(3000);
-        driver.findElement(By.xpath("(//*[@*='btn btn-default add-to-cart'])[2]")).click();
+        driver.findElement(By.xpath("(//a[@class='btn btn-default add-to-cart'])[3]")).click();
         //Click 'View Cart' button
         driver.findElement(By.xpath("//*[text()='View Cart']")).click();
         //Verify both products are added to Cart
