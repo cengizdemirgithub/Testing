@@ -28,7 +28,7 @@ public class WebTables extends TestBase {
 
 
         //○ Tüm table body’sinin boyutunu(sutun sayisi) bulun. /tbody
-        int sutun = driver.findElements(By.xpath("//tbody//tr")).size();
+        int sutun = driver.findElements(By.xpath("//table//thead//th")).size();
         System.out.println("sütun sayisi=" + sutun);
 
 
@@ -37,8 +37,12 @@ public class WebTables extends TestBase {
         System.out.println("basliklar :"+basliklar);
         System.out.println(driver.findElement(By.xpath("//tbody")).getText());
         //● printRows( ) metodu oluşturun //tr
+
         //○ table body’sinde bulunan toplam satir(row) sayısını bulun.
+        int satir=driver.findElements(By.xpath("//table//tbody//tr")).size();
+        System.out.println("satir sayisi: "+satir);
         //○ Table body’sinde bulunan satirlari(rows) konsolda yazdırın.
+        System.out.println(driver.findElements(By.xpath("//table//tr")));
         //○ 4.satirdaki(row) elementleri konsolda yazdırın
 
 
