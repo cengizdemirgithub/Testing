@@ -6,6 +6,11 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import utilities.TestBase;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class WebTables extends TestBase {
     @Test
     public void test01() {
@@ -42,7 +47,15 @@ public class WebTables extends TestBase {
         int satir=driver.findElements(By.xpath("//table//tbody//tr")).size();
         System.out.println("satir sayisi: "+satir);
         //○ Table body’sinde bulunan satirlari(rows) konsolda yazdırın.
-        System.out.println(driver.findElements(By.xpath("//table//tr")));
+        int fullRow=-1;
+        List<WebElement> rowList =driver.findElements(By.xpath("//tbody//tr"));
+
+        for (int i = 0; i <rowList.size() ; i++) {
+
+
+        }
+
+
         //○ 4.satirdaki(row) elementleri konsolda yazdırın
 
 
