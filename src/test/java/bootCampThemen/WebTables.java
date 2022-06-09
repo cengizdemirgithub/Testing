@@ -47,16 +47,18 @@ public class WebTables extends TestBase {
         int satir=driver.findElements(By.xpath("//table//tbody//tr")).size();
         System.out.println("satir sayisi: "+satir);
         //○ Table body’sinde bulunan satirlari(rows) konsolda yazdırın.
-        int fullRow=-1;
+
         List<WebElement> rowList =driver.findElements(By.xpath("//tbody//tr"));
+        System.out.println(rowList);
+        System.out.println(rowList.size());
 
-        for (int i = 0; i <rowList.size() ; i++) {
-
-
+        for (int i = 1; i <=rowList.size() ; i++) {
+            System.out.println("sütun "+i+": "+driver.findElement(By.xpath("//tbody//tr["+i+"]")).getText());
         }
 
 
-        //○ 4.satirdaki(row) elementleri konsolda yazdırın
+        //○ 4.satir(row) elementleri konsolda yazdırın
+        System.out.println(driver.findElement(By.xpath("//tbody//tr[4]")).getText());
 
 
     }
