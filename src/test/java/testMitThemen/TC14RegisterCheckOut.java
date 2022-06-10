@@ -1,6 +1,8 @@
 package testMitThemen;
 
 import com.github.dockerjava.api.model.Driver;
+import com.github.javafaker.Faker;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -18,15 +20,33 @@ public class TC14RegisterCheckOut extends TestBase {
 
         //4. Add products to cart
         List<WebElement> productList=new ArrayList<WebElement>();
-        for (int i = 1; i <69 ; i++) {
+        WebElement contionueShopping=driver.findElement(By.xpath("//*[text()='Continue Shopping']"));
+        int userProductNum=5;
+        for (int i = 1; i <=userProductNum ; i++) {
         productList.add(i-1,driver.findElement(By.xpath("//a[@data-product-id='"+i+"']")));
         productList.get(i-1).click();
+        contionueShopping.click();
         }
         //5. Click 'Cart' button
+        WebElement chart=driver.findElement(By.xpath("//*[@*='fa fa-shopping-cart']"));
+        chart.click();
         //6. Verify that cart page is displayed
+        WebElement chartElement=driver.findElement(By.xpath("//a[@href='/view_cart']"));
+        Assert.assertTrue(chartElement.isDisplayed());
         //7. Click Proceed To Checkout
+        WebElement proceedElement=driver.findElement(By.xpath("//*[@*='btn btn-default check_out']"));
+        proceedElement.click();
         //8. Click 'Register / Login' button
+        WebElement registerElement=driver.findElement(By.xpath("//*[text()='Continue On Cart']"));
+        registerElement.click();
         //9. Fill all details in Signup and create account
+        WebElement signIn=driver.findElement(By.xpath("(//*[@*='/login'])[1]"));
+        signIn.click();
+        WebElement name=driver.findElement(By.xpath("//*[@placeholder='Name']"));
+        Faker faker=new Faker();
+       name.sendKeys(faker.name().firstName());
+        WebElement email=driver.findElement(By.xpath("//*[@placeholder='Email Address']"));
+        email.sendKeys(faker.name().);
         //10. Verify 'ACCOUNT CREATED!' and click 'Continue' button
         //11. Verify ' Logged in as username' at top
         //12.Click 'Cart' button
