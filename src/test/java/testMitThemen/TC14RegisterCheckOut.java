@@ -71,17 +71,34 @@ public class TC14RegisterCheckOut extends TestBase {
         mobile.sendKeys(faker.phoneNumber().phoneNumber());
         WebElement creatAccountButton = driver.findElement(By.xpath("//*[text()='Create Account']"));
         creatAccountButton.click();
-        WebElement createdWrite=driver.findElement(By.xpath("//*[text()='Account Created!']"));
+        WebElement createdWrite = driver.findElement(By.xpath("//*[text()='Account Created!']"));
         Assert.assertTrue(createdWrite.isDisplayed());
-        WebElement continueButton=driver.findElement(By.xpath("//*[text()='Continue']"));
+        WebElement continueButton = driver.findElement(By.xpath("//*[text()='Continue']"));
         continueButton.click();
 
 
         //11. Verify ' Logged in as username' at top
+        WebElement loggedAsUsernameButton = driver.findElement(By.xpath("//*[text()=' Logged in as ']"));
+        Assert.assertTrue(loggedAsUsernameButton.isDisplayed());
         //12.Click 'Cart' button
+        WebElement cart = driver.findElement(By.xpath(" //*[text()=' Cart']"));
+        cart.click();
         //13. Click 'Proceed To Checkout' button
+        WebElement proceedCheckoutButton = driver.findElement(By.xpath(" //*[text()='Proceed To Checkout']"));
+        proceedCheckoutButton.click();
+
         //14. Verify Address Details and Review Your Order
+        WebElement adressDetails = driver.findElement(By.xpath(" //*[text()='Your delivery address']"));
+        Assert.assertTrue(adressDetails.isDisplayed());
+        WebElement reviewText = driver.findElement(By.xpath(" //*[text()='Review Your Order']"));
+        Assert.assertTrue(reviewText.isDisplayed());
+
         //15. Enter description in comment text area and click 'Place Order'
+        WebElement textarea = driver.findElement(By.tagName("textarea"));
+        textarea.sendKeys("good");
+        WebElement placeOrder = driver.findElement(By.xpath(" //*[text()='Place Order']"));
+        placeOrder.click();
+
         //16. Enter payment details: Name on Card, Card Number, CVC, Expiration date
         //17. Click 'Pay and Confirm Order' button
         //18. Verify success message 'Your order has been placed successfully!'
