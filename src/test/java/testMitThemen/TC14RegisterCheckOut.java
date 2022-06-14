@@ -100,7 +100,21 @@ public class TC14RegisterCheckOut extends TestBase {
         placeOrder.click();
 
         //16. Enter payment details: Name on Card, Card Number, CVC, Expiration date
+        WebElement nameOnCard = driver.findElement(By.xpath("//input[@class='form-control']"));
+        nameOnCard.sendKeys(faker.name().firstName());
+        WebElement cardNUmber = driver.findElement(By.xpath("//input[@name='card_number']"));
+        cardNUmber.sendKeys(faker.number().digit());
+        WebElement CVC = driver.findElement(By.xpath("//input[@class='form-control card-cvc']"));
+        CVC.sendKeys(faker.number().digits(123));
+        WebElement expiryMonth = driver.findElement(By.xpath("//input[@class='form-control card-expiry-month']"));
+        expiryMonth.sendKeys(faker.random().nextInt(1,12).toString());
+        WebElement expiryYear = driver.findElement(By.xpath("//input[@name='expiry_year']"));
+        expiryYear.sendKeys(faker.random().nextInt(1000,2000).toString());
+
+
         //17. Click 'Pay and Confirm Order' button
+        WebElement payButton = driver.findElement(By.xpath("//button[text()='Pay and Confirm Order']"));
+        payButton.click();
         //18. Verify success message 'Your order has been placed successfully!'
         //19. Click 'Delete Account' button
         //20. Verify 'ACCOUNT DELETED!' and click 'Continue' button

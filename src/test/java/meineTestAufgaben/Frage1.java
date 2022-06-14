@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utilities.TestBase;
 
 import java.time.Duration;
 
@@ -44,6 +45,8 @@ public class Frage1 {
 
         String title = driver.getTitle();
         System.out.println(title);
+
+
 
     }
 
