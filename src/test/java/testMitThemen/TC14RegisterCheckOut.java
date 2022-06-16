@@ -116,7 +116,13 @@ public class TC14RegisterCheckOut extends TestBase {
         WebElement payButton = driver.findElement(By.xpath("//button[text()='Pay and Confirm Order']"));
         payButton.click();
         //18. Verify success message 'Your order has been placed successfully!'
+        WebElement message=driver.findElement(By.xpath("//*[text()='Congratulations! Your order has been confirmed!']"));
+
+            Assert.assertFalse(message.toString().contains("Your order has been placed successfully!"));
+
         //19. Click 'Delete Account' button
+        WebElement deleteButton = driver.findElement(By.xpath("//*[@class='fa fa-trash-o']"));
+        deleteButton.click();
         //20. Verify 'ACCOUNT DELETED!' and click 'Continue' button
     }
 }
